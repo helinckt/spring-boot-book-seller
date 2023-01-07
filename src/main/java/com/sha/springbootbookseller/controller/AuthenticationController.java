@@ -21,7 +21,7 @@ public class AuthenticationController {
     private IUserService userService;
 
     @PostMapping("sign-up")//api/authentication/sign-up
-    public ResponseEntity<User> signUp(@RequestBody User user) {
+    public ResponseEntity<?> signUp(@RequestBody User user) {
         if (userService.findByUserName(user.getUsername()).isPresent()) {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
